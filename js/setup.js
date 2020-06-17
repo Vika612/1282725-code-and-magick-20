@@ -101,21 +101,21 @@ setupClose.addEventListener('keydown', function (evt) {
 // изменение цвета плаща/глаз/шара
 
 var onWizardCoatClick = function () {
-  var coatChange = COAT_COLORS[getRandom(0, COAT_COLORS.length - 1)];
-  wizardCoat.style.fill = coatChange;
-  wizardCoatInput.value = coatChange;
+  var newCoatColor = COAT_COLORS[getRandom(0, COAT_COLORS.length - 1)];
+  wizardCoat.style.fill = newCoatColor;
+  wizardCoatInput.value = newCoatColor;
 };
 
 var onWizardEyesClick = function () {
-  var eyesChange = EYES_COLORS[getRandom(0, EYES_COLORS.length - 1)];
-  wizardEyes.style.fill = eyesChange;
-  wizardEyesInput.value = eyesChange;
+  var newEyesColor = EYES_COLORS[getRandom(0, EYES_COLORS.length - 1)];
+  wizardEyes.style.fill = newEyesColor;
+  wizardEyesInput.value = newEyesColor;
 };
 
 var onWizardFireballClick = function () {
-  var fireballChange = FIREBALL_COLORS[getRandom(0, FIREBALL_COLORS.length - 1)];
-  wizardFireball.style.backgroundColor = fireballChange;
-  wizardFireballInput.value = fireballChange;
+  var newFireballColor = FIREBALL_COLORS[getRandom(0, FIREBALL_COLORS.length - 1)];
+  wizardFireball.style.backgroundColor = newFireballColor;
+  wizardFireballInput.value = newFireballColor;
 };
 
 wizardCoat.addEventListener('click', onWizardCoatClick);

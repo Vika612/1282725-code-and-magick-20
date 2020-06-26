@@ -21,6 +21,11 @@
   var closePopup = function () {
     setup.classList.add('hidden');
 
+    // положение диалога сбрасывается на изначальное
+
+    setup.style.top = '';
+    setup.style.left = '';
+
     document.removeEventListener('keydown', onPopupEscPress);
   };
 

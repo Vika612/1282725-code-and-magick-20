@@ -5,55 +5,62 @@
   var setup = document.querySelector('.setup');
   var dragDrop = setup.querySelector('.upload');
 
-  var onMouseDown = function (evt) {
-    evt.preventDefault();
+  var dragAndDropPopup = function () {
 
-    var startCoords = {
-      x: evt.clientX,
-      y: evt.clientY
-    };
+    var onMouseDown = function (evt) {
+      evt.preventDefault();
 
-    var dragged = false;
-
-    var onMouseMove = function (moveEvt) {
-      moveEvt.preventDefault();
-
-      dragged = true;
-
-      var shift = {
-        x: startCoords.x - moveEvt.clientX,
-        y: startCoords.y - moveEvt.clientY
+      var startCoords = {
+        x: evt.clientX,
+        y: evt.clientY
       };
 
-      startCoords = {
-        x: moveEvt.clientX,
-        y: moveEvt.clientY
-      };
+      var dragged = false;
 
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+      var onMouseMove = function (moveEvt) {
+        moveEvt.preventDefault();
 
-    };
+        dragged = true;
 
-    var onMouseUp = function (upEvt) {
-      upEvt.preventDefault();
-
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-
-      if (dragged) {
-        var onClickPreventDefault = function (clickEvt) {
-          clickEvt.preventDefault();
-          dragDrop.removeEventListener('click', onClickPreventDefault);
+        var shift = {
+          x: startCoords.x - moveEvt.clientX,
+          y: startCoords.y - moveEvt.clientY
         };
-        dragDrop.addEventListener('click', onClickPreventDefault);
-      }
+
+        startCoords = {
+          x: moveEvt.clientX,
+          y: moveEvt.clientY
+        };
+
+        setup.style.top = (setup.offsetTop - shift.y) + 'px';
+        setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+
+      };
+
+      var onMouseUp = function (upEvt) {
+        upEvt.preventDefault();
+
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+
+        if (dragged) {
+          var onClickPreventDefault = function (clickEvt) {
+            clickEvt.preventDefault();
+            dragDrop.removeEventListener('click', onClickPreventDefault);
+          };
+          dragDrop.addEventListener('click', onClickPreventDefault);
+        }
+      };
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
     };
 
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    dragDrop.addEventListener('mousedown', onMouseDown);
   };
 
-  dragDrop.addEventListener('mousedown', onMouseDown);
+  window.draggable = {
+    dragAndDropPopup: dragAndDropPopup(),
+  };
 
 })();

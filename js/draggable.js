@@ -2,12 +2,9 @@
 
 (function () {
 
-  var setup = document.querySelector('.setup');
-  var dragDrop = setup.querySelector('.upload');
+  var dragAndDropPopup = function (target, dragDrop) {
 
-  var dragAndDropPopup = function () {
-
-    var onMouseDown = function (evt) {
+    dragDrop.addEventListener('mousedown', function (evt) {
       evt.preventDefault();
 
       var startCoords = {
@@ -32,8 +29,8 @@
           y: moveEvt.clientY
         };
 
-        setup.style.top = (setup.offsetTop - shift.y) + 'px';
-        setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+        target.style.top = (target.offsetTop - shift.y) + 'px';
+        target.style.left = (target.offsetLeft - shift.x) + 'px';
 
       };
 
@@ -54,13 +51,13 @@
 
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
-    };
 
-    dragDrop.addEventListener('mousedown', onMouseDown);
+    });
   };
 
   window.draggable = {
-    dragAndDropPopup: dragAndDropPopup(),
+    dragAndDropPopup: dragAndDropPopup
+
   };
 
 })();

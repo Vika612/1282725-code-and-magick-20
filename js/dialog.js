@@ -2,11 +2,10 @@
 
 (function () {
 
-  // открытие/закрытие модального окна настройки персонажа
-
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
+  var setupDragDrop = setup.querySelector('.upload');
 
   var onPopupEscPress = function (evt) {
     window.util.isEscEvent(evt, closePopup);
@@ -22,7 +21,6 @@
     setup.classList.add('hidden');
 
     // положение диалога сбрасывается на изначальное
-
     setup.style.top = '';
     setup.style.left = '';
 
@@ -50,5 +48,7 @@
     setupOpen: setupOpen,
     setupClose: setupClose,
   };
+
+  window.draggable.dragAndDrop(setup, setupDragDrop);
 
 })();

@@ -49,6 +49,6 @@
     setupClose: setupClose,
   };
 
-  window.draggable.dragAndDrop(setup, setupDragDrop);
+  window.draggable.dragAndDropPopup(setup, setupDragDrop);
 
 })();

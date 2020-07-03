@@ -17,7 +17,7 @@
     };
   };
 
-  window.setup = {
+  window.data = {
     createObject: createObject,
   };
 

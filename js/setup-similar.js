@@ -10,20 +10,18 @@
 
   // генерация похожих персонажей
 
-  var wizards = window.data.createObject();
-
   var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
     return wizardElement;
   };
 
 
-  var onLoad = function () {
+  var onLoad = function (wizards) {
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < NUMBER_OF_WIZARD; i++) {

@@ -47,6 +47,7 @@
     setup: setup,
     setupOpen: setupOpen,
     setupClose: setupClose,
+    closePopup: closePopup,
   };
 
   window.draggable.dragAndDropPopup(setup, setupDragDrop);

@@ -4,6 +4,7 @@
 
   var NUMBER_OF_WIZARD = 4;
 
+  var setup = document.querySelector('.setup');
   var similarListElement = document.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
@@ -49,7 +50,7 @@
   window.backend.load(onLoad, onError);
 
 
-  var form = document.querySelector('.setup-wizard-form');
+  var form = setup.querySelector('.setup-wizard-form');
 
   var submit = function (evt) {
     window.backend.save(new FormData(form), function () {

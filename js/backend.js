@@ -24,14 +24,14 @@
   var load = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();
     request(onLoad, onError);
-    xhr.open(URL_GET, 'GET');
+    xhr.open('GET', URL_GET);
     xhr.send();
   };
 
   var save = function (data, onLoad, onError) {
     var xhr = new XMLHttpRequest();
     request(data, onLoad, onError);
-    xhr.open(URL_POST, 'POST');
+    xhr.open('POST', URL_POST);
     xhr.send(data);
   };
 

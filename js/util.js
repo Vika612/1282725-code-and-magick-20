@@ -2,8 +2,9 @@
 
 (function () {
 
-  var getRandom = function (min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  var arrayRandom = function (arr) {
+    var randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
   };
 
   var isEscEvent = function (evt, action) {
@@ -19,7 +20,7 @@
   };
 
   window.util = {
-    getRandom: getRandom,
+    arrayRandom: arrayRandom,
     isEscEvent: isEscEvent,
     isEnterEvent: isEnterEvent,
   };

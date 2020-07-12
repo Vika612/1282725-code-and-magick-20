@@ -2,39 +2,42 @@
 
 (function () {
 
+  var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+  var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
   var setup = document.querySelector('.setup');
-  var wizardCoat = setup.querySelector('.wizard-coat');
-  var wizardEyes = setup.querySelector('.wizard-eyes');
-  var wizardFireball = setup.querySelector('.setup-fireball-wrap');
 
   var wizardCoatInput = setup.querySelector('input[name="coat-color"]');
   var wizardEyesInput = setup.querySelector('input[name="eyes-color"]');
-  var wizardFireballInput = wizardFireball.querySelector('input[name="fireball-color"]');
+  var wizardFireballInput = setup.querySelector('input[name="fireball-color"]');
 
   // изменение цвета плаща/глаз/шара
 
-  var onWizardCoatClick = function () {
-    var newCoatColor = window.constColor.COAT_COLORS[window.util.getRandom(0, window.constColor.COAT_COLORS.length - 1)];
+  var wizardCoat = setup.querySelector('.wizard-coat');
+
+  wizardCoat.addEventListener('click', function () {
+    var newCoatColor = window.util.getRandomArrayElement(COAT_COLORS);
     wizardCoat.style.fill = newCoatColor;
     wizardCoatInput.value = newCoatColor;
-  };
+    window.setupSimilar.onCoatChange(newCoatColor);
+  });
 
-  var onWizardEyesClick = function () {
-    var newEyesColor = window.constColor.EYES_COLORS[window.util.getRandom(0, window.constColor.EYES_COLORS.length - 1)];
+  var wizardEyes = setup.querySelector('.wizard-eyes');
+
+  wizardEyes.addEventListener('click', function () {
+    var newEyesColor = window.util.getRandomArrayElement(EYES_COLORS);
     wizardEyes.style.fill = newEyesColor;
     wizardEyesInput.value = newEyesColor;
-  };
+    window.setupSimilar.onEyesChange(newEyesColor);
+  });
 
-  var onWizardFireballClick = function () {
-    var newFireballColor = window.constColor.FIREBALL_COLORS[window.util.getRandom(0, window.constColor.FIREBALL_COLORS.length - 1)];
+  var wizardFireball = setup.querySelector('.setup-fireball-wrap');
+
+  wizardFireball.addEventListener('click', function () {
+    var newFireballColor = window.util.getRandomArrayElement(FIREBALL_COLORS);
     wizardFireball.style.backgroundColor = newFireballColor;
     wizardFireballInput.value = newFireballColor;
-  };
-
-  wizardCoat.addEventListener('click', onWizardCoatClick);
-
-  wizardEyes.addEventListener('click', onWizardEyesClick);
-
-  wizardFireball.addEventListener('click', onWizardFireballClick);
+  });
 
 })();

@@ -2,7 +2,7 @@
 
 (function () {
 
-  var arrayRandom = function (arr) {
+  var getRandomArrayElement = function (arr) {
     var randomIndex = Math.floor(Math.random() * arr.length);
     return arr[randomIndex];
   };
@@ -20,7 +20,7 @@
   };
 
   window.util = {
-    arrayRandom: arrayRandom,
+    getRandomArrayElement: getRandomArrayElement,
     isEscEvent: isEscEvent,
     isEnterEvent: isEnterEvent,
   };

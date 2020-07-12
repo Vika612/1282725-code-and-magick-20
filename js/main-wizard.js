@@ -17,7 +17,7 @@
   var wizardCoat = setup.querySelector('.wizard-coat');
 
   wizardCoat.addEventListener('click', function () {
-    var newCoatColor = window.util.arrayRandom(COAT_COLORS);
+    var newCoatColor = window.util.getRandomArrayElement(COAT_COLORS);
     wizardCoat.style.fill = newCoatColor;
     wizardCoatInput.value = newCoatColor;
     window.setupSimilar.onCoatChange(newCoatColor);
@@ -26,7 +26,7 @@
   var wizardEyes = setup.querySelector('.wizard-eyes');
 
   wizardEyes.addEventListener('click', function () {
-    var newEyesColor = window.util.arrayRandom(EYES_COLORS);
+    var newEyesColor = window.util.getRandomArrayElement(EYES_COLORS);
     wizardEyes.style.fill = newEyesColor;
     wizardEyesInput.value = newEyesColor;
     window.setupSimilar.onEyesChange(newEyesColor);
@@ -35,7 +35,7 @@
   var wizardFireball = setup.querySelector('.setup-fireball-wrap');
 
   wizardFireball.addEventListener('click', function () {
-    var newFireballColor = window.util.arrayRandom(FIREBALL_COLORS);
+    var newFireballColor = window.util.getRandomArrayElement(FIREBALL_COLORS);
     wizardFireball.style.backgroundColor = newFireballColor;
     wizardFireballInput.value = newFireballColor;
   });
